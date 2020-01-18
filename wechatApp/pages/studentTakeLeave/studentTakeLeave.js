@@ -1,6 +1,13 @@
 var app = getApp()
 Page({
   data: {
+    phonenumber: app.globalData.id,    //账号；
+    password: app.globalData.password,       //密码；
+    sex:app.globalData.sex,
+    Class:app.globalData.Class,
+    College:app.globalData.College,
+    username:app.globalData.username,
+    tel:app.globalData.tel,
     message: '',
     modelInnerHtml: '',
     modalHidden: true,
@@ -30,7 +37,9 @@ Page({
       url: app.globalData.url+'/leave/commit',
       data: {
         cause:that.data.message,
-        item:'0'
+        item:'0',
+        sid:id,
+        
       },
       success: function (res) {
         that.setData({
