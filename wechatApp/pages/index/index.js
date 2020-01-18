@@ -1,17 +1,22 @@
 var app = getApp()
 Page({
   data: {
-    phonenumber: '',    //账号；
-    password: '',       //密码；
+    phonenumber: app.globalData.id,    //账号；
+    password: app.globalData.password,       //密码；
     bgimg: '/images/0.png',
     numShow: 'none',
     psdShow: 'none',
-    modelInnerHtml: '123',
+    modelInnerHtml: '',
     loadingHidden: true,
     modalHidden: true,
     show: false, //控制下拉列表的显示隐藏，false隐藏、true显示
     selectData: ['请选择', '学生', '教师'], //下拉列表的数据
-    index: 0 //选择的下拉列表下标
+    index: 0, //选择的下拉列表下标
+    sex:app.globalData.sex,
+    Class:app.globalData.Class,
+    College:app.globalData.College,
+    username:app.globalData.username,
+    tel:app.globalData.tel
   },
 
   // 点击下拉显示框
@@ -110,7 +115,7 @@ Page({
 
   // 点击提交按钮
   loginSubmit: function (e) {
-    console.log(this);
+    //console.log(this);
     var that = this;
     var index = this.data.index;
     if (this.data.index != 0 && this.data.phonenumber != '' && this.data.password != ''){
@@ -129,47 +134,65 @@ Page({
         loadingHidden: false
       })
 
-      //向后台清求数据的函数方法，此处便于调试先关闭！  by小锐！
-      // wx.request({
-      //   dataType: "json",
-      //   method: "GET",
-      //   //为上面修改的url。  by小锐！
-      //   url: urlStr,
-      //   data: {
-      //     account: this.data.phonenumber,
-      //     password: this.data.password
-      //   },
-      //   header: {
-      //     "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
-      //   },
-      //   // 此处先省略一些验证处理，即登录成功与否，登录成功后返回用户在的数据库地址等等全局变量后续再写！ by小锐！
-      //   success:function(res){
-      //     //验证账户密码是否正确的！后续得改为传回的值！
-      //     var flag=true;
-      //     if(flag){
-      //       if (index == 1) {
-      //         wx.redirectTo({
-      //           url: '../student/student',
-      //         })
-      //       }else if(index == 2){
-      //         wx.redirectTo({
-      //           url: '../teacher/teacher',
-      //         })
-      //       }
-      //     }
-      //   }
-      // })
+      // //向后台清求数据的函数方法，此处便于调试先关闭！  by小锐！
+      wx.request({
+        //为上面修改的url。  by小锐！
+        url: urlStr,
+        data: {
+          sid: that.data.phonenumber,
+          password: that.data.password
+        },
+        // 此处先省略一些验证处理，即登录成功与否，登录成功后返回用户在的数据库地址等等全局变量后续再写！ by小锐！
+        success:function(res){
+          //验证账户密码是否正确的！后续得改为传回的值！
+          var flag = false;
+          if(res==null)flag=true;
+          if(flag){
+            if (index == 1) {
+              that.setData({
+                id:res.sid,
+                sex:res.sex,
+                Class:res.sClass,
+                College:res.sCollege,
+                username:res.username,
+                tel:res.tel
+              })
+              wx.redirectTo({
+                url: '../student/student',
+              })
+            }else if(index == 2){
+              that.setData({
+                id:res.tid,
+                sex:res.sex,
+                College:res.tCollege,
+                username:res.username,
+                tel:res.tel
+              })
+              wx.redirectTo({
+                url: '../teacher/teacher',
+              })
+            }
+          }else{
+            that.setData({
+              numShow: '',
+              psdShow: 'none',
+              modelInnerHtml: '账号密码出错！',
+              modalHidden: false
+            })
+          }
+        }
+      })
       
       //下面这个我先用来测试界面的，后续需要删掉！  by小锐！
-      if (index == 1) {
-          wx.redirectTo({
-            url: '../student/student',
-          })
-        }else if(index == 2){
-          wx.redirectTo({
-            url: '../teacher/teacher',
-          })
-      }
+      // if (index == 1) {
+      //     wx.redirectTo({
+      //       url: '../student/student',
+      //     })
+      //   }else if(index == 2){
+      //     wx.redirectTo({
+      //       url: '../teacher/teacher',
+      //     })
+      // }
     }
 
     //以下为各种非法输入！  by小锐！

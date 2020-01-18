@@ -1,12 +1,14 @@
 //app.js
 App({
   globalData: {
-    myInfo: "",
     url: 'http://localhost:8080/',
-    chargeName: '',
-    wx_code: "jjj_ggg",
-    my_email: "1064265810@qq.com",
-    my_phone: "15982719207"
+    id:'',
+    sex:'',
+    password:'',
+    Class:'',
+    College:'',
+    username:'',
+    tel:''
   },
   onLaunch: function () {
     //调用API从本地缓存中获取数据

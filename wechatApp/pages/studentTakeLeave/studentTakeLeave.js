@@ -1,13 +1,10 @@
 var app = getApp()
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     message: '',
     modelInnerHtml: '',
     modalHidden: true,
+    item:''
   },
 
   // 弹窗消失
@@ -22,7 +19,7 @@ Page({
 
   bindMesInput: function (e) {
     this.setData({
-      message: e.detail.value
+      message: e.detail.value,
     })
     console.log(this.data.message)
   },
@@ -30,14 +27,10 @@ Page({
   submit:function(){
     var that=this;
     wx.request({
-      dataType: "json",
-      method: "GET",
-      url: app.globalData.url,
+      url: app.globalData.url+'/leave/commit',
       data: {
-        cause:that.data.message
-      },
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
+        cause:that.data.message,
+        item:'0'
       },
       success: function (res) {
         that.setData({
