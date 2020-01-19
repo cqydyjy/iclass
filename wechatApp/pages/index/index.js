@@ -3,6 +3,11 @@ Page({
   data: {
     phonenumber: app.globalData.id,    //账号；
     password: app.globalData.password,       //密码；
+    sex:app.globalData.sex,
+    Class:app.globalData.Class,
+    College:app.globalData.College,
+    username:app.globalData.username,
+    tel:app.globalData.tel,
     bgimg: '/images/0.png',
     numShow: 'none',
     psdShow: 'none',
@@ -11,12 +16,8 @@ Page({
     modalHidden: true,
     show: false, //控制下拉列表的显示隐藏，false隐藏、true显示
     selectData: ['请选择', '学生', '教师'], //下拉列表的数据
-    index: 0, //选择的下拉列表下标
-    sex:app.globalData.sex,
-    Class:app.globalData.Class,
-    College:app.globalData.College,
-    username:app.globalData.username,
-    tel:app.globalData.tel
+    index: 0, //选择的下拉列表下标,
+    id:'sid'
   },
 
   // 点击下拉显示框
@@ -123,8 +124,14 @@ Page({
       // var urlStr = 'http://localhost:8080/login/student';
       if(index==1){
         var urlStr = app.globalData.url + 'login/student' + '?' ;
+        that.setData({
+          id:'sid'
+        })
       }else if(index==2){
         var urlStr = app.globalData.url + 'login/teacher' + '?' ;
+        that.setData({
+          id: 'tid'
+        })
       }
 
       //交互数据这一块！
@@ -135,53 +142,187 @@ Page({
       })
 
       // //向后台清求数据的函数方法，此处便于调试先关闭！  by小锐！
-      wx.request({
-        //为上面修改的url。  by小锐！
-        url: urlStr,
-        data: {
-          sid: that.data.phonenumber,
-          password: that.data.password
-        },
-        // 此处先省略一些验证处理，即登录成功与否，登录成功后返回用户在的数据库地址等等全局变量后续再写！ by小锐！
-        success:function(res){
-          //验证账户密码是否正确的！后续得改为传回的值！
-          var flag = false;
-          if(res==null)flag=true;
-          if(flag){
-            if (index == 1) {
+      if(that.data.index==1){
+        wx.request({
+          //为上面修改的url。  by小锐！
+          url: urlStr,
+          data: {
+            sid: that.data.phonenumber,
+            password: that.data.password
+          },
+          // 此处先省略一些验证处理，即登录成功与否，登录成功后返回用户在的数据库地址等等全局变量后续再写！ by小锐！
+          success: function (res) {
+            //验证账户密码是否正确的！后续得改为传回的值！
+            var flag = false;
+            console.log(res)
+            if (res != null) flag = true;
+            if (flag) {
+              if (index == 1) {
+                app.globalData.id = res.data.sid;
+                app.globalData.sex = res.data.sex;
+                app.globalData.Class = res.data.sClass;
+                app.globalData.College = res.data.sCollege;
+                app.globalData.username = res.data.username;
+                app.globalData.tel = res.data.tel;
+                // that.setData({
+                //   id:res.sid,
+                //   sex:res.sex,
+                //   Class:res.sClass,
+                //   College:res.sCollege,
+                //   username:res.username,
+                //   tel:res.tel
+                // })
+                wx.redirectTo({
+                  url: '../student/student',
+                })
+              } else if (index == 2) {
+                app.globalData.id = res.data.tid;
+                app.globalData.sex = res.data.sex;
+                //app.globalData.Class=res.sClass;
+                app.globalData.College = res.data.tCollege;
+                app.globalData.username = res.data.username;
+                app.globalData.tel = res.data.tel;
+                // that.setData({
+                //   id:res.tid,
+                //   sex:res.sex,
+                //   College:res.tCollege,
+                //   username:res.username,
+                //   tel:res.tel
+                // })
+                wx.redirectTo({
+                  url: '../teacher/teacher',
+                })
+              }
+            } else {
               that.setData({
-                id:res.sid,
-                sex:res.sex,
-                Class:res.sClass,
-                College:res.sCollege,
-                username:res.username,
-                tel:res.tel
-              })
-              wx.redirectTo({
-                url: '../student/student',
-              })
-            }else if(index == 2){
-              that.setData({
-                id:res.tid,
-                sex:res.sex,
-                College:res.tCollege,
-                username:res.username,
-                tel:res.tel
-              })
-              wx.redirectTo({
-                url: '../teacher/teacher',
+                numShow: '',
+                psdShow: 'none',
+                modelInnerHtml: '账号密码出错！',
+                modalHidden: false
               })
             }
-          }else{
-            that.setData({
-              numShow: '',
-              psdShow: 'none',
-              modelInnerHtml: '账号密码出错！',
-              modalHidden: false
-            })
           }
-        }
-      })
+        })
+      }else if(that.data.index==2){
+        wx.request({
+          //为上面修改的url。  by小锐！
+          url: urlStr,
+          data: {
+            tid: that.data.phonenumber,
+            password: that.data.password
+          },
+          // 此处先省略一些验证处理，即登录成功与否，登录成功后返回用户在的数据库地址等等全局变量后续再写！ by小锐！
+          success: function (res) {
+            //验证账户密码是否正确的！后续得改为传回的值！
+            var flag = false;
+            if (res != null) flag = true;
+            if (flag) {
+              if (index == 1) {
+                app.globalData.id = res.data.sid;
+                app.globalData.sex = res.data.sex;
+                app.globalData.Class = res.data.sClass;
+                app.globalData.College = res.data.sCollege;
+                app.globalData.username = res.data.username;
+                app.globalData.tel = res.data.tel;
+                // that.setData({
+                //   id:res.sid,
+                //   sex:res.sex,
+                //   Class:res.sClass,
+                //   College:res.sCollege,
+                //   username:res.username,
+                //   tel:res.tel
+                // })
+                wx.redirectTo({
+                  url: '../student/student',
+                })
+              } else if (index == 2) {
+                app.globalData.id = res.data.tid;
+                app.globalData.sex = res.data.sex;
+                //app.globalData.Class=res.sClass;
+                app.globalData.College = res.data.tCollege;
+                app.globalData.username = res.data.username;
+                app.globalData.tel = res.data.tel;
+                // that.setData({
+                //   id:res.tid,
+                //   sex:res.sex,
+                //   College:res.tCollege,
+                //   username:res.username,
+                //   tel:res.tel
+                // })
+                wx.redirectTo({
+                  url: '../teacher/teacher',
+                })
+              }
+            } else {
+              that.setData({
+                numShow: '',
+                psdShow: 'none',
+                modelInnerHtml: '账号密码出错！',
+                modalHidden: false
+              })
+            }
+          }
+        })
+      }
+      // wx.request({
+      //   //为上面修改的url。  by小锐！
+      //   url: urlStr,
+      //   data: {
+      //     sid: that.data.phonenumber,
+      //     password: that.data.password
+      //   },
+      //   // 此处先省略一些验证处理，即登录成功与否，登录成功后返回用户在的数据库地址等等全局变量后续再写！ by小锐！
+      //   success:function(res){
+      //     //验证账户密码是否正确的！后续得改为传回的值！
+      //     var flag = false;
+      //     if(res != null)flag=true;
+      //     if(flag){
+      //       if (index == 1) {
+      //         app.globalData.id=res.sid;
+      //         app.globalData.sex=res.sex;
+      //         app.globalData.Class=res.sClass;
+      //         app.globalData.College=res.sCollege;
+      //         app.globalData.username=res.username;
+      //         app.globalData.tel=res.tel;
+      //         // that.setData({
+      //         //   id:res.sid,
+      //         //   sex:res.sex,
+      //         //   Class:res.sClass,
+      //         //   College:res.sCollege,
+      //         //   username:res.username,
+      //         //   tel:res.tel
+      //         // })
+      //         wx.redirectTo({
+      //           url: '../student/student',
+      //         })
+      //       }else if(index == 2){
+      //         app.globalData.id=res.tid;
+      //         app.globalData.sex=res.sex;
+      //         //app.globalData.Class=res.sClass;
+      //         app.globalData.College=res.tCollege;
+      //         app.globalData.username=res.username;
+      //         app.globalData.tel=res.tel;
+      //         // that.setData({
+      //         //   id:res.tid,
+      //         //   sex:res.sex,
+      //         //   College:res.tCollege,
+      //         //   username:res.username,
+      //         //   tel:res.tel
+      //         // })
+      //         wx.redirectTo({
+      //           url: '../teacher/teacher',
+      //         })
+      //       }
+      //     }else{
+      //       that.setData({
+      //         numShow: '',
+      //         psdShow: 'none',
+      //         modelInnerHtml: '账号密码出错！',
+      //         modalHidden: false
+      //       })
+      //     }
+      //   }
+      // })
       
       //下面这个我先用来测试界面的，后续需要删掉！  by小锐！
       // if (index == 1) {

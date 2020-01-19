@@ -1,0 +1,11 @@
+<view class="container">
+  <view wx:for="{{leavaRecord}}" wx:key="id" class="weui-cell__bd">
+    <text>学号；"{{item.createSid}}"  姓名："{{item.username}}"</text>
+    <text>请假原因："{{item.item}}" 状态："{{item.status}}"</text>
+    <textarea>"{{item.cause}}"</textarea>
+    <view class='button' bindtap="Ratify" data-id="{{index}}">批准</view>
+  </view>
+  <modal title="提示！" hidden="{{modalHidden}}" no-cancel bindconfirm="modalChange" class="modal">
+    <view class="newAlert"> {{modelInnerHtml}} </view>
+  </modal>
+</view>

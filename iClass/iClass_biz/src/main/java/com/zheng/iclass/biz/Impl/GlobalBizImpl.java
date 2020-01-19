@@ -23,12 +23,20 @@ public class GlobalBizImpl implements GlobalBiz {
 
     @Override
     public Student loginS(String sid, String password) {
-        return studentDao.select(sid);
+        Student student=studentDao.select(sid);
+        if(student!=null&&student.getPassword().equals(password)) {
+            return student;
+        }
+        return null;
     }
 
     @Override
     public Teacher loginT(String tid, String password) {
-        return teacherDao.select(tid);
+        Teacher teacher=teacherDao.select(tid);
+        if(teacher!=null&&teacher.getPassword().equals(password)){
+            return teacher;
+        }
+        return null;
     }
 }
 

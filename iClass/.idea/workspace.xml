@@ -46,22 +46,22 @@
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\zsj\oa\oa_web\src\main\webapp\WEB-INF\pages" />
-      <recent name="D:\zsj\oa\oa_web\src\main\webapp\pages" />
-      <recent name="D:\zsj\oa\oa_web\src\main\webapp" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.zheng.iclass.dto" />
-      <recent name="com.zheng.oa.controller" />
-      <recent name="com.zheng.oa.dao" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\zsj\oa\oa_web\src\main\webapp\WEB-INF\pages" />
       <recent name="D:\zsj\oa\oa_web\src\main\java\com\zheng\oa\dto" />
       <recent name="D:\zsj\oa\oa_dao\src\main\resources\com\zheng\oa\dao" />
       <recent name="D:\zsj\oa\oa_web\src\main\webapp" />
       <recent name="D:\zsj\oa\oa_dao\src\main\java\com\zheng\oa\global" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.zheng.iclass.dto" />
+      <recent name="com.zheng.oa.controller" />
+      <recent name="com.zheng.oa.dao" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\zsj\oa\oa_web\src\main\webapp\WEB-INF\pages" />
+      <recent name="D:\zsj\oa\oa_web\src\main\webapp\pages" />
+      <recent name="D:\zsj\oa\oa_web\src\main\webapp" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -247,6 +247,15 @@
       <workItem from="1577710126624" duration="528000" />
       <workItem from="1577710768781" duration="953000" />
       <workItem from="1577713198008" duration="4370000" />
+      <workItem from="1577720322517" duration="4083000" />
+      <workItem from="1577760947487" duration="3161000" />
+      <workItem from="1579231532590" duration="9102000" />
+      <workItem from="1579320764945" duration="142000" />
+      <workItem from="1579344768983" duration="6797000" />
+      <workItem from="1579364315983" duration="416000" />
+      <workItem from="1579364753931" duration="780000" />
+      <workItem from="1579365816675" duration="802000" />
+      <workItem from="1579426332567" duration="4171000" />
     </task>
     <servers />
   </component>

@@ -23,23 +23,19 @@ import java.util.List;
 public class GlobalController {
     @Autowired
     private GlobalBiz globalBiz;
-    @Autowired
-    private TeacherBiz teacherBiz;
-    @Autowired
-    private StudentBiz studentBiz;
     @RequestMapping("/student")
     @ResponseBody
-    public Student login(HttpSession session,@RequestParam String sid,@RequestParam String password){
-        /*response.setContentType("text/html;charset=utf-8");
-        response.setHeader("Access-Control-Allow-Orgin","*");
-        response.setHeader("Access-Control-Allow-Methods","GET,POST");*/
+    public Student loginS(HttpSession session,@RequestParam String sid,@RequestParam String password){
+
         Student student=globalBiz.loginS(sid,password);
+        session.setAttribute("student",student);
         return student;
     }
     @RequestMapping("/teacher")
     @ResponseBody
-    public Teacher tologin(@RequestParam String tid,@RequestParam String password){
-        Teacher teacher=teacherBiz.get(tid);
+    public Teacher loginT(HttpSession session,@RequestParam String tid,@RequestParam String password){
+        Teacher teacher=globalBiz.loginT(tid,password);
+        session.setAttribute("teacher",teacher);
         return teacher;
     }
 

@@ -10,5 +10,6 @@ public interface LeaveDao {
     void delete(int id);
     void update(Leave leave);
     Leave select(int id);
+    List<Leave> selectByTid(String tid);
     List<Leave> selectAll();
 }

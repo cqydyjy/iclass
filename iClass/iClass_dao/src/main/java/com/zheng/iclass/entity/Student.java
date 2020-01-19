@@ -6,7 +6,7 @@ public class Student {
     private String username;
     private String tel;
     private String sex;
-    private String sclass;
+    private String sClass;
     private String sCollege;
 
     public String getSid() {
@@ -49,19 +49,19 @@ public class Student {
         this.sex = sex;
     }
 
-    public String getSclass() {
-        return sclass;
+    public String getSClass() {
+        return sClass;
     }
 
-    public void setSclass(String sclass) {
-        this.sclass = sclass;
+    public void setSClass(String sClass) {
+        this.sClass = sClass;
     }
 
-    public String getsCollege() {
+    public String getSCollege() {
         return sCollege;
     }
 
-    public void setsCollege(String sCollege) {
+    public void setSCollege(String sCollege) {
         this.sCollege = sCollege;
     }
 }

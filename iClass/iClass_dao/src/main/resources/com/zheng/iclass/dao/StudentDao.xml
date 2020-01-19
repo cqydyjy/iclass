@@ -7,12 +7,13 @@
         <result property="username" column="username" javaType="String"/>
         <result property="tel" column="tel" javaType="String"/>
         <result property="sex" column="sex" javaType="String"/>
+        <result property="sClass" column="class" javaType="String"/>
         <result property="sCollege" column="s_college" javaType="String"/>
     </resultMap>
     <select id="select" parameterType="String" resultMap="student">
         select * from student where sid=#{sid}
     </select>
     <select id="selectByClass" resultMap="student">
-        select * from student where class=#{sclass}
+        select * from student where class=#{sClass}
     </select>
 </mapper>

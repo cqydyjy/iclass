@@ -30,9 +30,11 @@ Page({
       url: app.globalData.url+'/leave/commit',
       data: {
         cause:that.data.message,
-        item:'0'
+        item:'0',
+        Sid:app.globalData.id
       },
       success: function (res) {
+        console.log(res)
         that.setData({
           modelInnerHtml: '提交成功！',
           modalHidden: false

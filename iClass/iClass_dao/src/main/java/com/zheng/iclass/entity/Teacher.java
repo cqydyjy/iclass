@@ -48,11 +48,11 @@ private String tCollege;
         this.sex = sex;
     }
 
-    public String gettCollege() {
+    public String getTCollege() {
         return tCollege;
     }
 
-    public void settCollege(String tCollege) {
+    public void setTCollege(String tCollege) {
         this.tCollege = tCollege;
     }
 }
