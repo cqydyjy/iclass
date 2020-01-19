@@ -19,4 +19,41 @@ page{
   min-height: 800rpx;
   width: 100%; 
   color: white;
+  display: flex;
+  flex-direction: column;
+}
+.PostCheckIn{
+  height: 200rpx;
+  width: 650rpx;
+  margin: auto;
+  background-color: #5cd7ec;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.ApproveLeave{
+  height: 200rpx;
+  width: 650rpx;
+  margin: auto;
+  background-color: #5cd7ec;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.record{
+  height: 200rpx;
+  width: 650rpx;
+  margin: auto;
+  background-color: #5cd7ec;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+text{
+  size: 100rpx;
+  text-align: center;
+  margin: auto;
 }

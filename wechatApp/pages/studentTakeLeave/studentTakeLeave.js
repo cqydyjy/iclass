@@ -1,13 +1,6 @@
 var app = getApp()
 Page({
   data: {
-    phonenumber: app.globalData.id,    //账号；
-    password: app.globalData.password,       //密码；
-    sex:app.globalData.sex,
-    Class:app.globalData.Class,
-    College:app.globalData.College,
-    username:app.globalData.username,
-    tel:app.globalData.tel,
     message: '',
     modelInnerHtml: '',
     modalHidden: true,
@@ -38,10 +31,10 @@ Page({
       data: {
         cause:that.data.message,
         item:'0',
-        sid:id,
-        
+        Sid:app.globalData.id
       },
       success: function (res) {
+        console.log(res)
         that.setData({
           modelInnerHtml: '提交成功！',
           modalHidden: false

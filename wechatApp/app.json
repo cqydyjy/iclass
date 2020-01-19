@@ -7,7 +7,9 @@
     "pages/studentInfo/studentInfo",
     "pages/studentSignIn/studentSignIn",
     "pages/studentTakeLeave/studentTakeLeave",
-    "pages/studentRecord/studentRecord"
+    "pages/studentRecord/studentRecord",
+    "pages/teacherPostCheckIn/teacherPostCheckIn",
+    "pages/teacherApproveLeave/teacherApproveLeave"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,4 +1,4 @@
-// pages/teacher/teacher.js
+// pages/teacherPostCheckIn/teacherPostCheckIn.js
 Page({
 
   /**
@@ -8,21 +8,6 @@ Page({
 
   },
 
-  to_teacherInfo:function(){
-    wx.navigateTo({
-      url: '../teacherInfo/teacherInfo',
-    })
-  },
-  toPostCheckIn:function(){
-    wx.navigateTo({
-      url: '../teacherPostCheckIn/teacherPostCheckIn',
-    })
-  },
-  toApproveLeave:function(){
-    wx.navigateTo({
-      url: '../teacherApproveLeave/teacherApproveLeave',
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */
