@@ -9,6 +9,7 @@ Page({
     id: app.globalData.id,
     modelInnerHtml: '目前尚无记录！',
     modalHidden: true,
+    str:"   ",
   },
 
   // 弹窗消失

@@ -1,4 +1,5 @@
 <view class="container">
+  <view class="key">待审核请假</view>
   <view wx:for="{{leaveRecord}}" wx:key="id" class="weui-cell__bd" wx:if="{{item.status}}">
     <text>学号:{{item.createSid}}</text>
     <text>姓名:{{item.stu.username}}</text>

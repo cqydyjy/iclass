@@ -7,6 +7,11 @@
   background-image: url('http://106.52.28.120/wp-content/uploads/2019/11/translate.jpg');
   background-size: cover;
 }
+.key{
+  font-size: 50rpx;
+  color: white;
+  text-align: center;
+}
 .inline{
   height: 20vh;
   background-color: #5cd7ec;

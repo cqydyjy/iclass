@@ -18,6 +18,11 @@
   width: 98%;
   align-items: center;
 }
+.key{
+  font-size: 50rpx;
+  color: white;
+  text-align: center;
+}
 .inline{
   width: 95%;
   display: flex;

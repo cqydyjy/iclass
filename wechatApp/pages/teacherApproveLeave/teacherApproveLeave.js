@@ -92,6 +92,39 @@ Page({
     }
   },
 
+  unRatify: function (e) {
+    var that = this
+    var flag = e.currentTarget.dataset.id
+    console.log(this.data.leaveRecord[flag].item)
+    if (this.data.leaveRecord[flag].status == "不批准") {
+      this.setData({
+        modelInnerHtml: '你已拒批过了！',
+        modalHidden: false
+      })
+    } else {
+      wx.request({
+        url: app.globalData.url + '/leave/reject',
+        data: {
+          id: that.data.leaveRecord[flag].id
+        },
+        success: function (res) {
+          that.setData({
+            modelInnerHtml: '已不批准！',
+            modalHidden: false
+          })
+          that.onLoad()
+        },
+        fail: function () {
+          that.setData({
+            modelInnerHtml: '请求失败！',
+            modalHidden: false
+          })
+          that.onLoad()
+        }
+      })
+    }
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

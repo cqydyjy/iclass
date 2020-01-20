@@ -1,4 +1,5 @@
 <view class="container">
+  <view class="key">点名名单</view>
   <view wx:for="{{signInRecord}}" wx:key="id" class="inline">
     <view class="inline" data-id="{{index}}" bindtap="signIn"><text>学号:{{item.sid}}</text><text>姓名:{{item.username}}</text></view>
   </view>

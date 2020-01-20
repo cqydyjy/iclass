@@ -1,8 +1,7 @@
 <view class="container">
   <view wx:for="{{leaveRecord}}" wx:key="id" class="weui-cell__bd" wx:if="{{item.status}}">
-    <text>类型:{{item.item}}</text>
-    <text>状态:{{item.status}}</text>
-    <text>请假时间：</text>
+    <view><text>类型:{{item.item}}</text>{{str}}<text>状态:{{item.status}}</text></view>
+    <text>请假时间：{{item.simpleTime}}</text>
     <textarea>{{item.cause}}</textarea>
   </view>
   <modal title="提示！" hidden="{{modalHidden}}" no-cancel bindconfirm="modalChange" class="modal">
