@@ -1,9 +1,6 @@
 <view class="container">
   <image src="/images/1.png" class="headImg" bindtap="to_studentInfo"></image>
   <view class="menu">
-    <view class="SignIn" bindtap="toSignIn">
-      <text>签到</text>
-    </view>
     <view class="TakeLeave" bindtap="toTakeLeave">
       <text>请假</text>
     </view>

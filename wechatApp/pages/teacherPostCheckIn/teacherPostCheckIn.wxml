@@ -1,2 +1,9 @@
-<!--pages/teacherPostCheckIn/teacherPostCheckIn.wxml-->
-<text>pages/teacherPostCheckIn/teacherPostCheckIn.wxml</text>
+<view class="container">
+  <view wx:for="{{signInRecord}}" wx:key="id" class="inline">
+    <view class="inline" data-id="{{index}}" bindtap="signIn"><text>学号:{{item.sid}}</text><text>姓名:{{item.username}}</text></view>
+  </view>
+  <view class="button" bindtap="sent">提交</view>
+  <modal title="提示！" hidden="{{modalHidden}}" no-cancel bindconfirm="modalChange" class="modal">
+    <view class="newAlert"> {{modelInnerHtml}} </view>
+  </modal>
+</view>

@@ -2,12 +2,12 @@
   <image src="/images/2.png" class="headImg" bindtap="to_teacherInfo"></image>
   <view class="menu">
     <view class="PostCheckIn" bindtap="toPostCheckIn">
-      <text>发布签到</text>
+      <text>点名</text>
     </view>
     <view class="ApproveLeave" bindtap="toApproveLeave">
       <text>批准请假</text>
     </view>
-    <view class="record" bindtap="toRecord">
+    <view class="record" bindtap="toTeacherRecord">
       <text>记录</text>
     </view>
   </view>

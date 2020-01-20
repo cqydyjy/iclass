@@ -1,18 +1,25 @@
-// pages/teacherInfo/teacherInfo.js
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    tCollege: app.globalData.College,
+    tClass:app.globalData.Class,
+    tUsername:app.globalData.username,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      tCollege: app.globalData.College,
+      tClass: app.globalData.Class,
+      tUsername: app.globalData.username,
+    })
+    console.log(app.globalData)
   },
 
   /**

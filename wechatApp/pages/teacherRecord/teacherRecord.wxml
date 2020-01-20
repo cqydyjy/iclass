@@ -5,10 +5,6 @@
     <text>类型:{{item.item}}</text>
     <text>状态:{{item.status}}</text>
     <textarea>{{item.cause}}</textarea>
-    <view class="inline">
-      <view class='yes' bindtap="Ratify" data-id="{{index}}"><text>批准</text></view>
-      <view class='no' bindtap="unRatify" data-id="{{index}}"><text>不批准</text></view>
-    </view>
   </view>
   <modal title="提示！" hidden="{{modalHidden}}" no-cancel bindconfirm="modalChange" class="modal">
     <view class="newAlert"> {{modelInnerHtml}} </view>

@@ -1,15 +1,14 @@
 var app = getApp()
-var flag
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    College:'',
-    signInRecord: [],
+    leaveRecord: [],
     id: app.globalData.id,
-    modelInnerHtml: '已点名！',
+    str: '未批准',
+    modelInnerHtml: '目前尚无记录！',
     modalHidden: true,
   },
 
@@ -25,22 +24,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      College: app.globalData.College,
-    })
-    console.log(this.data.College)
     var that = this
-    console.log(app.globalData.url + 'call/studentList')
+    console.log(app.globalData.id)
     wx.request({
-      url: app.globalData.url + 'call/studentList',
+      url: app.globalData.url + 'leave/tdeal_record',
       data: {
-        tCollege: this.data.College
+        tid: app.globalData.id
       },
       success: function (res) {
+        console.log(res)
+        if (res == null) {
+          that.setData({
+            modelInnerHtml: '目前尚无记录！',
+            modalHidden: false
+          })
+          wx.navigateTo({
+            url: '../teacher/teacher',
+          })
+        }
         that.setData({
-          signInRecord: res.data
+          leaveRecord: res.data
         })
-        console.log(that.data.signInRecord)
       },
       fail: function (res) {
         that.setData({
@@ -52,18 +56,9 @@ Page({
         })
       }
     })
-    flag = new Array(this.data.signInRecord.length)
-    for(var i=0;i<this.data.signInRecord.length;i++){
-      flag[i]=false;
-    }
   },
 
-  signIn:function(e){
-    flag[e.currentTarget.dataset.id]=true;
-    this.setData({
-      modalHidden: false
-    })
-  },
+  
 
   /**
    * 生命周期函数--监听页面初次渲染完成

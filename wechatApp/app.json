@@ -5,11 +5,11 @@
     "pages/teacher/teacher",
     "pages/teacherInfo/teacherInfo",
     "pages/studentInfo/studentInfo",
-    "pages/studentSignIn/studentSignIn",
     "pages/studentTakeLeave/studentTakeLeave",
     "pages/studentRecord/studentRecord",
     "pages/teacherPostCheckIn/teacherPostCheckIn",
-    "pages/teacherApproveLeave/teacherApproveLeave"
+    "pages/teacherApproveLeave/teacherApproveLeave",
+    "pages/teacherRecord/teacherRecord"
   ],
   "window": {
     "backgroundTextStyle": "light",

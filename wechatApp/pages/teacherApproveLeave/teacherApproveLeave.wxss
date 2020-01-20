@@ -1,13 +1,61 @@
 @import '/style/weui.wxss';
-page{
-  height: 100%
-}
 .container{
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   background-image: url('http://106.52.28.120/wp-content/uploads/2019/11/translate.jpg');
   background-size: cover;
 }
-
+.weui-cell__bd{
+  min-height: 20vh;
+  background-color: #5cd7ec;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  border-radius: 10rpx;
+  text-align: center;
+  width: 98%;
+  align-items: center;
+}
+.inline{
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+textarea{
+  width: 95%;
+  min-height: 10vh;
+  background-color: white;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+text{
+  color: white;
+}
+.yes{
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #36e461;
+  width: 40%;
+  border-radius: 10rpx;
+  margin: auto;
+  margin-bottom: 10rpx;
+}
+.no{
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #e4363f;
+  width: 40%;
+  border-radius: 10rpx;
+  margin: auto;
+  margin-bottom: 10rpx;
+}

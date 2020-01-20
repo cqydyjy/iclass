@@ -1,19 +1,63 @@
-// pages/studentRecord/studentRecord.js
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    leaveRecord: [],
+    id: app.globalData.id,
+    modelInnerHtml: '目前尚无记录！',
+    modalHidden: true,
+  },
 
+  // 弹窗消失
+  modalChange: function () {
+    this.setData({
+      modalHidden: true
+    })
+    this.onLoad()
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    console.log(app.globalData.id)
+    wx.request({
+      url: app.globalData.url + '/leave/sdeal_record',
+      data: {
+        sid: app.globalData.id
+      },
+      success: function (res) {
+        console.log(res)
+        if (res == null) {
+          that.setData({
+            modelInnerHtml: '目前尚无记录！',
+            modalHidden: false
+          })
+          wx.navigateTo({
+            url: '../student/student',
+          })
+        }
+        that.setData({
+          leaveRecord: res.data
+        })
+      },
+      fail: function (res) {
+        that.setData({
+          modelInnerHtml: '获取失败！！',
+          modalHidden: false
+        })
+        wx.navigateTo({
+          url: '../student/student',
+        })
+      }
+    })
   },
+
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

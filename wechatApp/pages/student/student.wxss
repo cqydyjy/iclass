@@ -22,16 +22,6 @@ page{
   display: flex;
   flex-direction: column;
 }
-.SignIn{
-  height: 200rpx;
-  width: 650rpx;
-  margin: auto;
-  background-color: #5cd7ec;
-  border-radius: 20rpx;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
 .TakeLeave{
   height: 200rpx;
   width: 650rpx;

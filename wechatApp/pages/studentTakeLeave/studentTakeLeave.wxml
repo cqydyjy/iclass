@@ -1,6 +1,8 @@
 <view class="container">
-  <textarea bindinput="bindMesInput" placeholder="请输入请假事由！" placeholder-class="ph" value='{{inputValue}}' ></textarea>
-  <button bindtap="submit">提交</button>
+<view wx:if="{{flag}}" class="tip">请选择请假类型：</view>
+<view wx:if="{{flag}}" class="Img"><image src="/images/病假.png" bindtap="c1"></image><image src="/images/事假.png" bindtap="c2"></image></view>
+  <textarea wx:if="{{!flag}}" bindinput="bindMesInput" placeholder="请输入请假事由！" placeholder-class="ph" value='{{inputValue}}' ></textarea>
+  <button wx:if="{{!flag}}" bindtap="submit">提交</button>
 </view>
 
 <modal title="提示" hidden="{{modalHidden}}" no-cancel bindconfirm="modalChange">

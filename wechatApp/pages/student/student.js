@@ -10,12 +10,6 @@ Page({
     })
   },
 
-  toSignIn:function(){
-    wx.navigateTo({
-      url: '../studentSignIn/studentSignIn',
-    })
-  },
-
   toTakeLeave: function () {
     wx.navigateTo({
       url: '../studentTakeLeave/studentTakeLeave',

@@ -1,1 +1,36 @@
-/* pages/teacherPostCheckIn/teacherPostCheckIn.wxss */
+@import '/style/weui.wxss';
+.container{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  background-image: url('http://106.52.28.120/wp-content/uploads/2019/11/translate.jpg');
+  background-size: cover;
+}
+.inline{
+  height: 20vh;
+  background-color: #5cd7ec;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  border-radius: 10rpx;
+  text-align: center;
+  width: 98%;
+  align-items: center;
+}
+text{
+  color: white;
+  margin-top: 5rpx;
+}
+.button{
+  margin-top:20rpx; 
+  margin-bottom: 10rpx;
+  width: 90%;
+  color: white;
+  height: 100rpx;
+  align-items: center;
+  text-align: center;
+  font-size: 60rpx;
+  background-color: #36e461;
+  border-radius: 10rpx;
+}

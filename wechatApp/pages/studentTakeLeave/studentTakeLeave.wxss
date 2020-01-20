@@ -27,3 +27,18 @@ button{
   color: white;
   background-color: rgb(50, 183, 192);
 }
+.Img{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 800rpx;
+}
+image{
+  height: 300rpx;
+  width: 300rpx;
+}
+.tip{
+  color: white;
+  font-size: 50rpx;
+}

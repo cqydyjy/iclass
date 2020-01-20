@@ -1,5 +1,5 @@
 # iclass
-### 大学生请假与签到小程序！
+### 大学生请假与点名小程序！
 ![GitHub repo size](https://img.shields.io/github/repo-size/ixiaorui2018/iclass.svg?style=flat-square)
 ![Stars](https://img.shields.io/github/stars/ixiaorui2018/iclass.svg?style=flat-square)
 ![Forks](https://img.shields.io/github/forks/ixiaorui2018/iclass.svg?style=flat-square)
@@ -15,3 +15,4 @@
 | :---: | :---: | :---: |
 
 ##### 此处仅展示风格界面，具体功能源码已上传，尚在完善中！
+##### 2020-1-20 已基本完成所有功能！

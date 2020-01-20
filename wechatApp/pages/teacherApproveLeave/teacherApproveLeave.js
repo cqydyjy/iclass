@@ -18,6 +18,7 @@ Page({
       this.setData({
         modalHidden: true
       })
+      this.onLoad()
     },
 
   /**
@@ -61,7 +62,8 @@ Page({
   Ratify:function (e) {
     var that=this
     var flag=e.currentTarget.dataset.id
-    if(this.data.leaveRecord[id].item==str){
+    console.log(this.data.leaveRecord[flag].item)
+    if(this.data.leaveRecord[flag].status=="已批准"){
       this.setData({
         modelInnerHtml: '你已批准过了！',
         modalHidden: false

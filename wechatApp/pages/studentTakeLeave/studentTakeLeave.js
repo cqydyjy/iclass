@@ -4,7 +4,8 @@ Page({
     message: '',
     modelInnerHtml: '',
     modalHidden: true,
-    item:''
+    item:'',
+    flag:true,
   },
 
   // 弹窗消失
@@ -16,6 +17,23 @@ Page({
       delta: 1
     })
   },
+
+  //选择病假
+  c1:function(){
+    this.setData({
+      item:'0',
+      flag:false
+    })
+  },
+
+  //选择事假
+  c2: function () {
+    this.setData({
+      item: '1',
+      flag: false
+    })
+  },
+
 
   bindMesInput: function (e) {
     this.setData({
@@ -30,7 +48,7 @@ Page({
       url: app.globalData.url+'/leave/commit',
       data: {
         cause:that.data.message,
-        item:'0',
+        item:that.data.item,
         Sid:app.globalData.id
       },
       success: function (res) {
